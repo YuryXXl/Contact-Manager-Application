@@ -1,5 +1,4 @@
 import Logo from '../../components/Logo';
-import { Link } from 'react-router';
 
 function About() {
   return (

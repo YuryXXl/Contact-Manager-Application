@@ -1,19 +1,12 @@
-import { Link, Navigate } from 'react-router';
-import Logo from '../../components/Logo.jsx';
-import NavButton from '../../components/NavButton.jsx';
+import ContactList from '../../components/contactList/ContactList'
+import './Home.css'
 
 function Home() {
   return (
-    <>
-      <h1 className="text-center mt-5 text-body-secondary fw-bold">
-        Uh, I guess you dont have anything to show yet on Home Page?
-      </h1>
-      <Logo />
-      <div className="text-center">
-        <NavButton to="/about" text={'> About'} />
-        <NavButton to="/demo" text="> Demo" />
-      </div>
-    </>
+    <div className='d-flex flex-column justify-content-center w-100 p-1'>
+      <h3 className="fs-1 fw-bold front text-cust-color text-center mt-4">Contacts</h3>
+      <ContactList />
+    </div>
   );
 }
 
