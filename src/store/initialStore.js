@@ -38,7 +38,7 @@ export const initialState = () => ({
   todos: [],
   user: {
     isAuthenticated: false,
-    user_id: 42,
+    user_id: null,
   },
   contacts: [
     {
