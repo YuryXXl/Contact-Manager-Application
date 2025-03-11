@@ -23,12 +23,12 @@
         - [X] ContactList
             - [X] ContactCard
         - [X] Add to protected route   
-        - [ ] Delete Contact
-        - [ ] Edit Contact
+        - [X] Delete Contact
+        - [X] Edit Contact
     - [X] Favorites
         - [X] Implement logic to handle favovirites
-    - [ ] AddContact
-    - [ ] Contact Profile
+    - [X] AddContact
+    - [X] Contact Profile
 
 
 -[ ] Integrate API

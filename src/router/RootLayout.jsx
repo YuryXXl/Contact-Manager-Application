@@ -37,7 +37,7 @@ function RootLayout() {
             <>
               <NavButton to="/home" text="Contacts" />
               <NavButton to="/favorites" text="Favorites" />
-              <NavButton to="/addcontact" text="Add Contact" />
+              <NavButton to="/addContact" text="Add Contact" />
               <NavButton
                 callback={handleLogOut}
                 to="/"

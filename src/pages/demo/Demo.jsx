@@ -2,6 +2,7 @@ import { useGlobalStore } from '../../hooks/useGlobalStore.js';
 import { useState, useEffect } from 'react';
 import { fetchTodos, addTodo, deleteTodo } from '../../utils/api.js';
 
+
 function Demo() {
   // load the store to this component
   const { store, dispatch } = useGlobalStore();

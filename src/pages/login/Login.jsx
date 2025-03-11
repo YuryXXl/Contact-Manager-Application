@@ -23,7 +23,6 @@ function Login() {
       });
       dispatch({ type: 'SET_AUTH', payload: { isAuthenticated: true } });
 
-      // fetch contacts...
       const getContactsResponse = await fetchContacts(getUserByEmailResponse.id);
       console.log('Fetched Contacts: ', getContactsResponse)
       dispatch({type: 'SET_CONTACTS', payload: getContactsResponse});
@@ -43,7 +42,7 @@ function Login() {
           <div className="mb-3">
             <input
               type="email"
-              className="form-control p-4"
+              className="form-control p-4 text-light "
               id="email"
               placeholder="email..."
               onChange={(e) => setEmail(e.target.value)}

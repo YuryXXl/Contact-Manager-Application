@@ -1,4 +1,4 @@
-import ContactList from '../../components/contactList/ContactList'
+import ContactList from '../../components/contactList/ContactList.jsx';
 import './Home.css'
 
 function Home() {
