@@ -1,6 +1,6 @@
 export async function deleteContact(contactId, userId) {
   const options = {
-    method: 'DELETE',
+    method: "DELETE",
   };
   const response = await fetch(
     `/api//user/contacts/${contactId}?user_id=${userId}`,
@@ -13,11 +13,14 @@ export async function deleteContact(contactId, userId) {
 }
 
 export async function updateContact(contactId, userId, updatedData) {
-  const response = await fetch(`/api/user/contacts/${contactId}?user_id=${userId}`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(updatedData),
-  });
+  const response = await fetch(
+    `/api/user/contacts/${contactId}?user_id=${userId}`,
+    {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedData),
+    }
+  );
 
   if (!response.ok) {
     throw new Error(response.statusText);
@@ -26,7 +29,7 @@ export async function updateContact(contactId, userId, updatedData) {
 }
 
 export async function fetchUserByEmail(email) {
-  const options = { headers: { 'X-Secret-Token': 'qwerty' } };
+  const options = { headers: { "X-Secret-Token": "qwerty" } };
   const response = await fetch(`/api/users/email/${email}`, options);
   if (!response.ok) {
     throw new Error(response.statusText);
@@ -36,13 +39,13 @@ export async function fetchUserByEmail(email) {
 
 export async function createNewUser(user) {
   const options = {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(user),
   };
-  const response = await fetch('/api/users', options);
+  const response = await fetch("/api/users", options);
   if (!response.ok) {
     throw new Error(response.statusText);
   }
@@ -51,9 +54,9 @@ export async function createNewUser(user) {
 
 export async function addContact(userId, contactData) {
   const options = {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({ user_id: userId, ...contactData }),
   };
@@ -74,9 +77,9 @@ export async function fetchContacts(userId) {
 
 export async function addToFavorites(userId, contactId) {
   const options = {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({ user_id: userId, contact_id: contactId }),
   };
@@ -89,7 +92,7 @@ export async function addToFavorites(userId, contactId) {
 
 export async function deleteFromFavorites(userId, contactId) {
   const options = {
-    method: 'DELETE',
+    method: "DELETE",
   };
   const response = await fetch(
     `/api/user/contacts/favorites/${contactId}?user_id=${userId}`,

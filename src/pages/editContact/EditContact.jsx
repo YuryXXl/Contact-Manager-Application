@@ -1,30 +1,34 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router';
-import { useGlobalStore } from '../../hooks/useGlobalStore';
-import { updateContact, fetchContacts } from '../../utils/api';
-import GlassCard from '../../components/glassCard/GlassCard';
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router";
+import { useGlobalStore } from "../../hooks/useGlobalStore";
+import { updateContact, fetchContacts } from "../../utils/api";
+import GlassCard from "../../components/glassCard/GlassCard";
 
 function EditContact() {
   const { store, dispatch } = useGlobalStore();
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const existingContact = store.contacts.find(contact => contact.id === Number(id));
+  const existingContact = store.contacts.find(
+    (contact) => contact.id === Number(id)
+  );
 
-  const [contact, setContact] = useState(existingContact || {
-    full_name: '',
-    email: '',
-    phone_number: '',
-    city: '',
-    country: '',
-  });
+  const [contact, setContact] = useState(
+    existingContact || {
+      full_name: "",
+      email: "",
+      phone_number: "",
+      city: "",
+      country: "",
+    }
+  );
 
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!existingContact) {
-      navigate('/home');
+      navigate("/home");
     }
   }, [existingContact, navigate]);
 
@@ -35,7 +39,7 @@ function EditContact() {
   const handleUpdateContact = async (e) => {
     e.preventDefault();
     if (!contact.full_name || !contact.email || !contact.phone_number) {
-      setError('Please fill in all required fields.');
+      setError("Please fill in all required fields.");
       return;
     }
 
@@ -45,11 +49,11 @@ function EditContact() {
     try {
       await updateContact(contact.id, store.user.user_id, contact);
       const updatedContacts = await fetchContacts(store.user.user_id);
-      dispatch({ type: 'SET_CONTACTS', payload: updatedContacts });
-      navigate('/home');
+      dispatch({ type: "SET_CONTACTS", payload: updatedContacts });
+      navigate("/home");
     } catch (e) {
-      console.error('Error updating contact:', e);
-      setError('Failed to update contact. Try again.');
+      console.error("Error updating contact:", e);
+      setError("Failed to update contact. Try again.");
     } finally {
       setLoading(false);
     }
@@ -115,7 +119,7 @@ function EditContact() {
           </div>
           {error && <p className="text-danger">{error}</p>}
           <button type="submit" className="btn btn-primary" disabled={loading}>
-            {loading ? 'Updating...' : 'Update Contact'}
+            {loading ? "Updating..." : "Update Contact"}
           </button>
         </form>
       </GlassCard>

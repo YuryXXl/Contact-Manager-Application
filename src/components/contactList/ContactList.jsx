@@ -1,15 +1,13 @@
-import React from 'react';
-import ContactCard from '../contactCard/ContactCard';
-import { useGlobalStore } from '../../hooks/useGlobalStore.js';
-import { useLocation } from 'react-router';
+import React from "react";
+import ContactCard from "../contactCard/ContactCard";
+import { useGlobalStore } from "../../hooks/useGlobalStore.js";
+import { useLocation } from "react-router";
 
-// Импорт изображений
-import photo1 from '../../assets/images/img.1.jpeg';
-import photo2 from '../../assets/images/img.2.jpeg';
-import photo3 from '../../assets/images/img.3.jpeg';
-import photo4 from '../../assets/images/img.4.jpeg';
+import photo1 from "../../assets/images/img.1.jpeg";
+import photo2 from "../../assets/images/img.2.jpeg";
+import photo3 from "../../assets/images/img.3.jpeg";
+import photo4 from "../../assets/images/img.4.jpeg";
 
-// Привязка фото к id контакта
 const contactImages = [photo1, photo2, photo3, photo4];
 
 function ContactList() {
@@ -17,7 +15,7 @@ function ContactList() {
   const location = useLocation();
 
   const hadleFavoritesPath = () => {
-    if (location.pathname === '/favorites') {
+    if (location.pathname === "/favorites") {
       return store.contacts.filter((contact) => contact.is_favorite);
     }
     return store.contacts;
@@ -29,7 +27,10 @@ function ContactList() {
         hadleFavoritesPath().map((contact) => (
           <ContactCard
             key={contact.id}
-            base64_image={contact.base64_image || contactImages[contact.id % contactImages.length]}
+            base64_image={
+              contact.base64_image ||
+              contactImages[contact.id % contactImages.length]
+            }
             city={contact.city}
             country={contact.country}
             email={contact.email}
@@ -40,8 +41,10 @@ function ContactList() {
           />
         ))
       ) : (
-        <div className='d-flex flex-column justify-content-center z-3'>
-          <h6 className='text-light text-center mt-5 fs-3'>No contacts here yet...</h6>
+        <div className="d-flex flex-column justify-content-center z-3">
+          <h6 className="text-light text-center mt-5 fs-3">
+            No contacts here yet...
+          </h6>
           <img src="/no-connection.png" alt="No Data" />
         </div>
       )}

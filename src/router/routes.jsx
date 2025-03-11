@@ -13,8 +13,8 @@ import Profile from "../pages/profile/Profile.jsx";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout />, 
-    errorElement: <ErrorPage />, 
+    element: <RootLayout />,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Login /> },
       { path: "/signup", element: <Signup /> },
@@ -52,7 +52,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: '/profile/:id',
+        path: "/profile/:id",
         element: (
           <ProtectedRoute>
             <Profile />
@@ -62,4 +62,3 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
-

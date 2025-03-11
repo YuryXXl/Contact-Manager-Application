@@ -1,15 +1,13 @@
-import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { useGlobalStore } from '../../hooks/useGlobalStore';
-import GlassCard from '../../components/glassCard/GlassCard';
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useGlobalStore } from "../../hooks/useGlobalStore";
+import GlassCard from "../../components/glassCard/GlassCard";
 
-// ✅ Импорт изображений
-import photo1 from '../../assets/images/img.1.jpeg';
-import photo2 from '../../assets/images/img.2.jpeg';
-import photo3 from '../../assets/images/img.3.jpeg';
-import photo4 from '../../assets/images/img.4.jpeg';
+import photo1 from "../../assets/images/img.1.jpeg";
+import photo2 from "../../assets/images/img.2.jpeg";
+import photo3 from "../../assets/images/img.3.jpeg";
+import photo4 from "../../assets/images/img.4.jpeg";
 
-// ✅ Фиксированные фото для контактов
 const contactImages = [photo1, photo2, photo3, photo4];
 
 function Profile() {
@@ -23,7 +21,7 @@ function Profile() {
     if (foundContact) {
       setContact(foundContact);
     } else {
-      navigate('/home');
+      navigate("/home");
     }
   }, [id, store.contacts, navigate]);
 
@@ -36,17 +34,30 @@ function Profile() {
       <GlassCard>
         <h2 className="text-center text-light">{contact.full_name}</h2>
         <div className="text-center">
-          <img className="profile-image" 
-               src={contact.base64_image || contactImages[contact.id % contactImages.length]} 
-               alt="Profile" />
+          <img
+            className="profile-image"
+            src={
+              contact.base64_image ||
+              contactImages[contact.id % contactImages.length]
+            }
+            alt="Profile"
+          />
         </div>
         <div className="text-light mt-3">
-          <p><strong>Email:</strong> {contact.email}</p>
-          <p><strong>Phone:</strong> {contact.phone_number}</p>
-          <p><strong>City:</strong> {contact.city}</p>
-          <p><strong>Country:</strong> {contact.country}</p>
+          <p>
+            <strong>Email:</strong> {contact.email}
+          </p>
+          <p>
+            <strong>Phone:</strong> {contact.phone_number}
+          </p>
+          <p>
+            <strong>City:</strong> {contact.city}
+          </p>
+          <p>
+            <strong>Country:</strong> {contact.country}
+          </p>
         </div>
-        <button className="btn btn-primary" onClick={() => navigate('/home')}>
+        <button className="btn btn-primary" onClick={() => navigate("/home")}>
           Back to Contacts
         </button>
       </GlassCard>
