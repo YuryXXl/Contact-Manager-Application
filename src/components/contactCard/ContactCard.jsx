@@ -13,6 +13,15 @@ import {
 } from '../../utils/api';
 import { useGlobalStore } from '../../hooks/useGlobalStore';
 
+// Импорт изображений
+import photo1 from '../../assets/images/img.1.jpeg';
+import photo2 from '../../assets/images/img.2.jpeg';
+import photo3 from '../../assets/images/img.3.jpeg';
+import photo4 from '../../assets/images/img.4.jpeg';
+
+// Фиксированные фото для контактов
+const contactImages = [photo1, photo2, photo3, photo4];
+
 function ContactCard({ base64_image, city, country, email, full_name, id, is_favorite, phone_number }) {
   const { store, dispatch } = useGlobalStore();
   const navigate = useNavigate();
@@ -67,11 +76,11 @@ function ContactCard({ base64_image, city, country, email, full_name, id, is_fav
             )}
           </button>
           <div className="image-container">
-            {base64_image ? (
-              <img className="profile-image ms-4" src={base64_image} alt="Profile" />
-            ) : (
-              <IoMdContact className="placeholder-image ms-4" />
-            )}
+            <img 
+              className="profile-image ms-4" 
+              src={base64_image || contactImages[id % contactImages.length]} 
+              alt="Profile" 
+            />
           </div>
           <div className="text-light ms-5">
             <div
