@@ -32,9 +32,9 @@
 
 
 -[ ] Integrate API
-    - [ ] Login - GET: /api/user/email/:email
-    - [ ] Register - POST: /api/user 
-    - [ ] Get Contacts - GET: /api/user/conatcs
+    - [X] Login - GET: /api/user/email/:email
+    - [X] Register - POST: /api/user 
+    - [X] Get Contacts - GET: /api/user/conatcs
     - [ ] Get Contact - GET: /api/user/conatcs/:code
     - [ ] Get Contact - GET: /api/user/conatcs/:code
 
